@@ -11,8 +11,8 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    String user;
-    String password;
+    String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     WebDriver driver;
     LoginPage loginPage;
