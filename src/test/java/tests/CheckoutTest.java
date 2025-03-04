@@ -39,7 +39,7 @@ public class CheckoutTest extends BaseTest {
     @Owner("Бородич Тимофей")
     public void checkout() {
         loginPage.open()
-                .login("standard_user", "secret_sauce")
+                .login(user, password)
                 .addToCart("Sauce Labs Bolt T-Shirt")
                 .clickToCart()
                 .clickToCheckout()

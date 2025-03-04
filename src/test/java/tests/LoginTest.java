@@ -21,14 +21,14 @@ public class LoginTest extends BaseTest {
     @Test
     public void checkNegativeLoginWithEmptyPassword() {
         loginPage.open()
-                .loginForNegativeData("standard_user", "");
+                .loginForNegativeData(user, "");
         assertEquals(loginPage.getErrorMessage(), "Epic sadface: Password is required");
     }
 
     @Test
     public void checkPositiveLogin() {
         loginPage.open()
-                .login("standard_user", "secret_sauce");
+                .login(user, password);
         assertTrue(productsPage.isPageOpened());
     }
 }
