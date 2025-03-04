@@ -1,9 +1,11 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class ProductsPage {
 
     WebDriver driver;
@@ -18,17 +20,20 @@ public class ProductsPage {
 
     @Step("Страница ProductsPage открыта")
     public boolean isPageOpened() {
+        log.info("Страница ProductsPage открыта");
        return driver.findElement(TITLE).isDisplayed();
     }
 
     @Step("Добавление в корзину товара - {product}")
     public ProductsPage addToCart(String product) {
+        log.info("Добавление в корзину товара - {}", product);
         driver.findElement(By.xpath(String.format(ADD_TO_CART, product))).click();
         return this;
     }
 
     @Step("Нажатие на кнопку корзина")
     public CartPage clickToCart() {
+        log.info("Нажатие на кнопку корзина");
         driver.findElement(CART_BUTTON).click();
         return new CartPage(driver);
     }
